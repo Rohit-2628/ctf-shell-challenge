@@ -5,7 +5,6 @@ echo "  _      __    __                   __       __  __           "
 echo " | | /| / /__ / /______  __ _  ___ / /____  / /_/ /  ___      "
 echo " | |/ |/ / -_) / __/ _ \/  ' \/ -_) __/ _ \/ __/ _ \/ -_)     "
 echo " |__/|__/\__/_/\__/\___/_/_/_/\__/\__/\___/\__/_//_/\__/      "
-echo "                                                              "
 echo "====================================================================="
 echo ""
 echo " [+] System locked. Awaiting correct passcode."
@@ -17,11 +16,12 @@ if [ "$user_input" == "cyberadmin2026" ]; then
     echo "[*] Verifying..."
     sleep 1
     echo "[+] Access Granted!"
-
-    if [ -z "$FLAG" ]; then
-        echo "[-] Error: Environment variable \$FLAG is missing."
+    
+    if [ -f /home/ctfplayer/flag.txt ]; then
+        FLAG_CONTENT=$(cat /home/ctfplayer/flag.txt)
+        echo "[+] Here is your reward: $FLAG_CONTENT"
     else
-        echo "[+] Here is your reward: $FLAG"
+        echo "[-] Error: flag.txt is missing."
     fi
 else
     echo "[-] Access Denied. Intruder logged."
