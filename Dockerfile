@@ -17,4 +17,4 @@ RUN chown -R ctfplayer:ctfplayer /home/ctfplayer
 USER ctfplayer
 
 # Start a normal terminal session so the player can explore
-CMD ["/bin/bash"]
+CMD ["sleep", "infinity"]
